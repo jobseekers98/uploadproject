@@ -1,0 +1,202 @@
+﻿ @model WebApplication2.Models.location_Concatenate;
+@{
+    ViewData["Title"] = "ConcateNateQuery";
+}
+
+<h1>ConcateNateQuery</h1>
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <input type="text" id="txtLocation" name="txtLocation" onclick="getlocation()"><br>
+
+                                                                                   <form id="studenteForm">
+
+                                                                                       <input type="hidden" id="idlatitude" asp-for="Latitude" />
+                                                                                       <input type="hidden" id="idlongitude" asp-for="Longitude" />
+                                                                                       <input type="hidden" id="idPostal" asp-for="Postal" />
+                                                                                       <input type="hidden" id="idCity" asp-for="City" />
+                                                                                       <input type="hidden" id="idDistrict" asp-for="District" />
+                                                                                       <input type="hidden" id="idState" asp-for="State" />
+                                                                                       <input type="hidden" id="idcountry" asp-for="country" />
+                                                                                       <div class="form-group">
+                                                                                           <button type="button" class="btn btn-primary" onclick="submitStudent()">Submit</button>
+                                                                                       </div>
+                                                                                   </form>
+
+
+
+</div>
+<div>
+    @*<input type="text" ID="txtLocation" Width="200px" />*@
+
+    <script type="text/javascript">
+
+
+        function submitStudent() {
+            var data = $("#studenteForm").serialize();
+            console.log(data);
+            alert(data);
+            $.ajax({
+                type: 'POST',
+                url: '/Home/ConcateNateQuery',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: data,
+                success: function (result) {
+                    alert('Successfully received Data ');
+                    console.log(result);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+
+
+
+        //AddScript('AIzaSyAOaWuSw6Y1KUo6XXGKfwcLah5awnn4tNU');
+
+        //function AddScript(key) {
+        //    var script = document.createElement('script');
+
+        //    script.src = "https://maps.googleapis.com/maps/api/js?libraries=places&key=" + key;
+        //    script.type = 'text/javascript';
+        //    document.getElementsByTagName('head')[0].appendChild(script);
+        //}
+        var a;
+        function getlocation() {
+            var places = new google.maps.places.Autocomplete(document.getElementById('txtLocation'));
+            google.maps.event.addListener(places, 'place_changed', function () {
+                var place = places.getPlace();
+
+                var address = place.formatted_address;
+                var latitude = place.geometry.location.lat();
+                var longitude = place.geometry.location.lng();
+                var mesg = "Address: " + address;
+                mesg += "\nLatitude: " + latitude;
+                mesg += "\nLongitude: " + longitude;
+                a = place;
+
+               // alert(mesg);
+
+                //var cityname = a.address_components[0].long_name;
+                //var districtname = a.address_components[1].long_name;
+                //var Statename = a.address_components[2].long_name;
+                //var Countryname = a.address_components[3].long_name;
+
+
+                //var msgg = "city=" + cityname + "\n District=" + districtname + "\n State=" + Statename + "\n Contry=" + Countryname;
+
+                //msgg = msgg + "\n lat=" + latitude;
+                //msgg = msgg + "\n lon=" + longitude;
+
+                //alert(msgg);
+
+
+            //    var state;
+            //    var city;
+            //    var country;
+                 
+                var messages = "";
+                messages += "\nLatitude: " + latitude;
+                $("#Latitude").val(latitude);
+                messages += "\nLongitude: " + longitude;
+                $("#Longitude").val(longitude);
+
+                $("#idPostal").val(place.address_components[i].long_name);
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var find = false;
+                    for (var j = 0; j < place.address_components[i].types.length; j++) {
+                        if (place.address_components[i].types[j] == "postal_code") {
+                            //alert(place.address_components[i].long_name);
+                            messages = messages + "\nPostal Code  = " + place.address_components[i].long_name
+                            $("#idPostal").val(place.address_components[i].long_name);
+                            find = true
+                            break;
+                        }
+
+                    }
+                    if (find) {
+                        break
+                    }
+                }
+
+
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var find = false;
+                    for (var j = 0; j < place.address_components[i].types.length; j++) {
+                        if (place.address_components[i].types[j] == "locality") {
+                            //alert(place.address_components[i].long_name);
+                            messages = messages + "\nCity = " + place.address_components[i].long_name
+                            $("#idCity").val(place.address_components[i].long_name);
+                            find=true
+                           break;
+                        }
+                    }
+                    if (find) {
+                        break
+                    }
+                }
+
+
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var find = false;
+                    for (var j = 0; j < place.address_components[i].types.length; j++) {
+                        if (place.address_components[i].types[j] == "administrative_area_level_2") {
+                            //alert(place.address_components[i].long_name);
+                            messages = messages + "\n District = " + place.address_components[i].long_name
+                            $("#idDistrict").val(place.address_components[i].long_name);
+                            find = true
+                            break;
+                        }
+                    }
+                    if (find) {
+                        break
+                    }
+                }
+
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var find = false;
+                    for (var j = 0; j < place.address_components[i].types.length; j++) {
+                        if (place.address_components[i].types[j] == "administrative_area_level_1") {
+                            //alert(place.address_components[i].long_name);
+                            messages = messages + "\n State = " + place.address_components[i].long_name
+                            $("#idState").val(place.address_components[i].long_name);
+                            find = true
+                            break;
+                        }
+                    }
+                    if (find) {
+                        break
+                    }
+                }
+
+
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var find = false;
+                    for (var j = 0; j < place.address_components[i].types.length; j++) {
+                        if (place.address_components[i].types[j] == "country") {
+                            //alert(place.address_components[i].long_name);
+                            messages = messages + "\n country = " + place.address_components[i].long_name
+                            $("#idcountry").val(place.address_components[i].long_name);
+                            find = true
+                            break;
+                        }
+                    }
+
+                    if (find) {
+                        break
+                    }
+                }
+
+            alert(messages)
+            });
+        }
+
+    </script>
+</div>
+
+

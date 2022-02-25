@@ -32,7 +32,7 @@ namespace WebApplication2.Controllers
           
             
                 var data = dbcontext.tbl_Locations.Add(location);
-                await dbcontext.SaveChangesAsync();
+                    await dbcontext.SaveChangesAsync();
                 // return RedirectToAction(nameof(Index));
                 ViewBag.msg = "Record has been Added";
             
@@ -43,6 +43,7 @@ namespace WebApplication2.Controllers
         public IActionResult Privacy()
         {
             return View();
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -50,5 +51,73 @@ namespace WebApplication2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpGet]
+        public IActionResult BindData() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BindData(tbl_location tbl)
+        {
+            //tbl_location tbl = new tbl_location();
+            //tbl.Id = Id;
+            //tbl.Latitude = latitude;
+            //tbl.Address = Address;
+            //tbl.Longitude = longitude;
+
+            dbcontext.tbl_Locations.Add(tbl);
+            await dbcontext.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
+            ViewBag.msg = "Record has been Added";
+
+            return View(tbl);
+        }
+
+        [HttpGet]
+        public IActionResult ConcateNateQuery()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConcateNateQuery(location_Concatenate tbl)
+        {
+
+            dbcontext.tbl_LocConcate.Add(tbl);
+            await dbcontext.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
+            //ViewBag.msg = "Record has been Added";
+
+            return View(tbl);
+
+       
+        }
+
+        [HttpGet]
+        public IActionResult Test()
+        {
+            return View();
+        }
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Test(location_Concatenate tbl)
+        {
+
+            dbcontext.tbl_LocConcate.Add(tbl);
+            await dbcontext.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
+            //ViewBag.msg = "Record has been Added";
+
+            return View(tbl);
+
+        }
+
+
+
+
     }
 }

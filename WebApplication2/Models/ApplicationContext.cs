@@ -14,6 +14,8 @@ namespace WebApplication2.Models
         
         }
       public DbSet<tbl_location> tbl_Locations { get; set; }
+      public DbSet<location_Concatenate> tbl_LocConcate { get; set; }
 
     }
 }
+

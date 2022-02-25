@@ -21,6 +21,6 @@ namespace WebApplication2
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+         });
     }
 }
