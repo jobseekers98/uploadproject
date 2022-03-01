@@ -217,6 +217,7 @@ D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Vi
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\ConcateNateQuery.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -229,5 +230,5 @@ D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebAppli
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.dll
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.pdb
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.genruntimeconfig.cache
-D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
-D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.AssemblyReference.cache
+D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Demo\Index.cshtml.g.cs
+D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\TestDropDown.cshtml.g.cs

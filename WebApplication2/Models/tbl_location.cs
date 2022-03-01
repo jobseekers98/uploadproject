@@ -17,7 +17,7 @@ namespace WebApplication2.Models
 
         public string Address { get; set; }
 
-      //  [Column(Type="varchar")]
+        //  [Column(Type="varchar")]
         public string PhoneNumber { get; set; }
     }
 }

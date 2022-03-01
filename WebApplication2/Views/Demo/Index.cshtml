@@ -1,0 +1,48 @@
+﻿@model WebApplication2.Models.Category
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+
+    $('#zip').blur(function(){
+    var zip = $(this).val();
+    var api_key = AIzaSyAOaWuSw6Y1KUo6XXGKfwcLah5awnn4tNU ;
+    if(zip.length){
+    //make a request to the google geocode api with the zipcode as the address parameter and your api key
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key='+api_key).then(function(response){
+    //parse the response for a list of matching city/state
+    var possibleLocalities = geocodeResponseToCityState(response);
+    fillCityAndStateFields(possibleLocalities);
+    });
+    }
+    });
+</div>
+
+<div>
+    if(localities.length > 1) { //possibly create a dropdown if we have multiple cities in the result.
+    var $select = $(document.createElement('select'));
+    for(var i = 0; i < localities.length; i++){
+    var city = localities[i].city;
+    var $option = $(document.createElement('option'));
+    $option.html(city);
+    $option.attr('value', city);
+    if(i == 0) {
+    $option.attr('selected','selected');
+    }
+    $select.append($option);
+    $select.attr('id','city');
+    }
+    $input = $select;
+    } else {
+    var city = localities[0].city;
+    var $text = $(document.createElement('input'));
+    $text.attr('value', city);
+    $text.attr('type','text');
+    $input = $text;
+    }
+
+    $('#city-input-wrapper').html($input);
+    }
+
+</div>

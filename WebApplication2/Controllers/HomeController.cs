@@ -27,17 +27,17 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost]
-        public async Task< IActionResult> Index(tbl_location location)
-        {
-          
+        //public async Task< IActionResult> Index(EmployeeViewModel model)
+        //{
+
             
-                var data = dbcontext.tbl_Locations.Add(location);
-                    await dbcontext.SaveChangesAsync();
-                // return RedirectToAction(nameof(Index));
-                ViewBag.msg = "Record has been Added";
-            
-                return View(location);
-        }
+        //    var data = dbcontext.tbl_Locations.Add(location);
+        //    await dbcontext.SaveChangesAsync();
+        //    // return RedirectToAction(nameof(Index));
+        //    ViewBag.msg = "Record has been Added";
+
+        //    return RedirectToAction(Index);
+        //}
 
 
         public IActionResult Privacy()
@@ -56,6 +56,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> BindData(tbl_location tbl)
@@ -81,18 +82,18 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ConcateNateQuery(location_Concatenate tbl)
-        {
+        //public async Task<IActionResult> ConcateNateQuery(location_Concatenate tbl)
+        //{
 
-            dbcontext.tbl_LocConcate.Add(tbl);
-            await dbcontext.SaveChangesAsync();
-            // return RedirectToAction(nameof(Index));
-            //ViewBag.msg = "Record has been Added";
+        //    dbcontext.tbl_LocConcate.Add(tbl);
+        //    await dbcontext.SaveChangesAsync();
+        //    // return RedirectToAction(nameof(Index));
+        //    //ViewBag.msg = "Record has been Added";
 
-            return View(tbl);
+        //    return View(tbl);
 
        
-        }
+        //}
 
         [HttpGet]
         public IActionResult Test()
@@ -106,7 +107,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public async Task<IActionResult> Test(location_Concatenate tbl)
         {
-
+         
             dbcontext.tbl_LocConcate.Add(tbl);
             await dbcontext.SaveChangesAsync();
             // return RedirectToAction(nameof(Index));
@@ -116,6 +117,26 @@ namespace WebApplication2.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult TestDropDown()
+        {
+            return View();
+          
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> TestDropDown(EmployeeViewModel model)
+        {
+
+            //dbcontext.tbl_LocConcate.Add(model);
+             await dbcontext.SaveChangesAsync();
+            //  dbcontext.tbl_LocConcate.Add(tbl);
+            //await dbcontext.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
+            //ViewBag.msg = "Record has been Added";
+            return View(model);
+        }
 
 
 
