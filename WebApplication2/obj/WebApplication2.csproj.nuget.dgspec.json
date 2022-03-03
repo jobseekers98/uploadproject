@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkingProject\\uploadproject\\WebApplication2\\WebApplication2.csproj": {}
+    "C:\\Working Project\\uploadproject\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "D:\\WorkingProject\\uploadproject\\WebApplication2\\WebApplication2.csproj": {
+    "C:\\Working Project\\uploadproject\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingProject\\uploadproject\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Working Project\\uploadproject\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "D:\\WorkingProject\\uploadproject\\WebApplication2\\WebApplication2.csproj",
-        "packagesPath": "C:\\Users\\satyamp\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingProject\\uploadproject\\WebApplication2\\obj\\",
+        "projectPath": "C:\\Working Project\\uploadproject\\WebApplication2\\WebApplication2.csproj",
+        "packagesPath": "C:\\Users\\satyam\\.nuget\\packages\\",
+        "outputPath": "C:\\Working Project\\uploadproject\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\satyamp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\satyam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,6 +69,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -82,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

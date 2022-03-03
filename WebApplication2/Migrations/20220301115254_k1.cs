@@ -25,21 +25,21 @@ namespace WebApplication2.Migrations
                     table.PrimaryKey("PK_tbl_BindDropDown", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "tbl_Locations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Latitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Longitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tbl_Locations", x => x.Id);
-                });
+            //migrationBuilder.CreateTable(
+            //    name: "tbl_Locations",
+            //    columns: table => new
+            //    {
+            //        Id = table.Column<int>(type: "int", nullable: false)
+            //            .Annotation("SqlServer:Identity", "1, 1"),
+            //        Latitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+            //        Longitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+            //        Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+            //        PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+            //    },
+            //    constraints: table =>
+            //    {
+            //        table.PrimaryKey("PK_tbl_Locations", x => x.Id);
+            //    });
 
             migrationBuilder.CreateTable(
                 name: "tbl_LocConcate",

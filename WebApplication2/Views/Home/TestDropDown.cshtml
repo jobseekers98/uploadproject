@@ -1,4 +1,4 @@
-﻿@model WebApplication2.Models.EmployeeViewModel
+﻿@model WebApplication2.Models.EmployeeVM
 @{
     ViewData["Title"] = "TestDropDown";
 }
@@ -7,7 +7,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <input type="text" id="txtLocation" name="txtLocation" onclick="getlocation()"><br>
 
-    <form id="submitStudent">
+    <form id="studenteForm">
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <label asp-for="Latitude">Latitude</label>
@@ -36,10 +36,17 @@
 
         <div class="form-group">
             <label asp-for="State">State</label>
-            @*<input type="text" asp-for="State" class="form-control" id="idState" placeholder="Enter State">*@
-            <select id="drpEmpList" class="form-control" asp-for="State" asp-items="@(new SelectList(Model.StateDropDownList, "Text", "Value"))">
+            <input asp-for="State" hidden  >
+            <select id="drpEmpList" class="form-control" asp-items="@(new SelectList(Model.StateDropDownList, "Text", "Text"))">
+                <option value="">--Select--</option>
+            </select>
+            @*<select id="drpEmpList" class="form-control">
                     <option value="">--Select--</option>
-             </select>
+                    @foreach (var item in Model.StateDropDownList)
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
+                </select>*@
 
             <input type="hidden" asp-for="Id" />
         </div>
@@ -79,12 +86,14 @@
         }*@
 
         function submitStudent() {
+            debugger;
+            $("#State").val($("#drpEmpList").val());
             var data = $("#studenteForm").serialize();
             console.log(data);
             alert(data);
             $.ajax({
                 type: 'POST',
-                url: '/Home/BindData',
+                url: '/Home/TestDropDown',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
                 data: data,
                 success: function (result) {
@@ -113,7 +122,8 @@
                 var Postal;
                 var State;
                 debugger;
-                for (var i = 0; i < place.address_components.length; i++) {
+                for (var i = 0; i < place.address_components.length; i++)
+                {
                     var find = false;
                     for (var j = 0; j < place.address_components[i].types.length; j++) {
                         if (place.address_components[i].types[j] == "postal_code") {
@@ -123,7 +133,7 @@
                             city = place.address_components[i].long_name;
                         }
                         else if (place.address_components[i].types[j] == "administrative_area_level_2") {
-                            
+
                             district = place.address_components[i].long_name;
                         }
                         else if (place.address_components[i].types[j] == "administrative_area_level_1") {
@@ -133,7 +143,9 @@
                             if (State !== null)
                             {
                                 //$("#drpEmpList").val(State).attr("selected", "selected");
-                                $("#drpEmpList option:selected").text(State);
+                                //$("#drpEmpList option:selected").text(State);
+                                $("#drpEmpList").val(State);
+                                //$("idState").val(State);
                                 //$('select[name^="salesrep"] option[value="Bruce Jones"]').attr("selected", "selected");
                             }
                         }

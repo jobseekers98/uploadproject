@@ -120,21 +120,58 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public IActionResult TestDropDown()
         {
-            return View();
-          
+            //var productsList = (from product in dbcontext.tbl_BindDropDown
+            //                    select new StateList()
+            //                    {
+            //                        Text = product.State,
+            //                        //Value = product.Id(),
+            //                    }).ToList();
+
+            //productsList.Insert(0, new StateList()
+            //{
+            //    Text = "----Select----",
+            //  //  Value = string.Empty
+            //});
+
+            //return View(productsList);
+            EmployeeVM model = new EmployeeVM();
+           // model.StateDropDownList = dbcontext.tbl_BindDropDown.Select(x => new StateList { Value = x.Id, Text = x.State }).ToList();
+
+           
+            return View(model);
+
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> TestDropDown(EmployeeViewModel model)
-        {
 
-            //dbcontext.tbl_LocConcate.Add(model);
-             await dbcontext.SaveChangesAsync();
-            //  dbcontext.tbl_LocConcate.Add(tbl);
-            //await dbcontext.SaveChangesAsync();
-            // return RedirectToAction(nameof(Index));
-            //ViewBag.msg = "Record has been Added";
+        [HttpPost]
+        public  IActionResult TestDropDown(EmployeeVM model)
+        {
+            try
+            {
+                EmployeeViewModel vm = new EmployeeViewModel()
+                {
+                    City = model.City,
+                    State = model.State,
+                    District = model.District,
+                    country = model.country,
+                    Latitude = model.Latitude,
+                    Longitude = model.Longitude,
+                    Postal=model.Postal
+                };
+                dbcontext.tbl_BindDropDown.Add(vm);
+                int i= dbcontext.SaveChanges();
+                //  dbcontext.tbl_LocConcate.Add(tbl);
+                //await dbcontext.SaveChangesAsync();
+                // return RedirectToAction(nameof(Index));
+                //ViewBag.msg = "Record has been Added";
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToString();
+            }
+           
             return View(model);
         }
 
