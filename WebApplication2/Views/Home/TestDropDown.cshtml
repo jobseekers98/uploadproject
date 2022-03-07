@@ -2,18 +2,40 @@
 @{
     ViewData["Title"] = "TestDropDown";
 }
+
+
+
+<script src="~/lib/jquery/jquery-3.6.0.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <input type="text" id="txtLocation" name="txtLocation" onclick="getlocation()"><br>
+    @*<input type="text" id="txtLocation" name="txtLocation" onclick="getlocation()"><br>*@
 
     <form id="studenteForm">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <input type="hidden" asp-for="Id" />
+
         <div class="form-group">
-            <label asp-for="Latitude">Latitude</label>
-            <input type="text" asp-for="Latitude" class="form-control" id="Latitude" aria-describedby="emailHelp" placeholder="Enter Latitude">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your location with anyone else.</small>
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Address, new {  @class = "form-control", @id = "txtLocation", @onclick = "getlocation()"  })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             <label asp-for="Longitude">Longitude</label>
             <input type="text" asp-for="Longitude" class="form-control" id="Longitude" placeholder="Enter Longitude">
@@ -36,7 +58,7 @@
 
         <div class="form-group">
             <label asp-for="State">State</label>
-            <input asp-for="State" hidden  >
+            <input asp-for="State" hidden>
             <select id="drpEmpList" class="form-control" asp-items="@(new SelectList(Model.StateDropDownList, "Text", "Text"))">
                 <option value="">--Select--</option>
             </select>
@@ -74,7 +96,7 @@
     @*<input type="text" ID="txtLocation" Width="200px" />*@
 
     <script type="text/javascript">
-@*
+    @*
         AddScript('AIzaSyAOaWuSw6Y1KUo6XXGKfwcLah5awnn4tNU');
 
         function AddScript(key) {
@@ -87,7 +109,7 @@
 
         function submitStudent() {
             debugger;
-            $("#State").val($("#drpEmpList").val());
+          /*  $("#State").val($("#drpEmpList").val());*/
             var data = $("#studenteForm").serialize();
             console.log(data);
             alert(data);
@@ -112,9 +134,13 @@
         function getlocation() {
             var places = new google.maps.places.Autocomplete(document.getElementById('txtLocation'));
             google.maps.event.addListener(places, 'place_changed', function () {
+                a = place;
                 var place = places.getPlace();
                 var latitude = place.geometry.location.lat();
                 var longitude = place.geometry.location.lng();
+                var address = place.formatted_address;
+                var strarray = address.split(',');
+                var Addarr = strarray[0] + strarray[1] + strarray[2];
 
                 var country;
                 var city;
@@ -162,6 +188,7 @@
                 $("#idcountry").val(country);
                 $("#Latitude").val(latitude);
                 $("#Longitude").val(longitude);
+               // $("#idAddress").val(Addarr);
             });
         }
     </script>

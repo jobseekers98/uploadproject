@@ -136,8 +136,6 @@ namespace WebApplication2.Controllers
             //return View(productsList);
             EmployeeVM model = new EmployeeVM();
            // model.StateDropDownList = dbcontext.tbl_BindDropDown.Select(x => new StateList { Value = x.Id, Text = x.State }).ToList();
-
-           
             return View(model);
 
         }
@@ -149,6 +147,8 @@ namespace WebApplication2.Controllers
         {
             try
             {
+                var a = model.Address.Split(',');
+                model.Address = $"{a[0]}, {a[1]}, {a[2]}";
                 EmployeeViewModel vm = new EmployeeViewModel()
                 {
                     City = model.City,
@@ -157,7 +157,8 @@ namespace WebApplication2.Controllers
                     country = model.country,
                     Latitude = model.Latitude,
                     Longitude = model.Longitude,
-                    Postal=model.Postal
+                    Postal = model.Postal,
+                    Address = model.Address,
                 };
                 dbcontext.tbl_BindDropDown.Add(vm);
                 int i= dbcontext.SaveChanges();

@@ -14,6 +14,7 @@ namespace WebApplication2.Models
         [Key]
         public int Id { get; set; }
 
+        public string Address { get; set; }
 
         public string Postal { get; set; }
 
@@ -35,19 +36,21 @@ namespace WebApplication2.Models
         [Key]
         public int Id { get; set; }
 
-
+        [Required]
+        public string Address { get; set; }
+        [Required]
         public string Postal { get; set; }
-
+        [Required]
         public string City { get; set; }
-
+        [Required]
         public string District { get; set; }
-
+        [Required]
         public string State { get; set; }
-
+        [Required]
         public string country { get; set; }
-
+        [Required]
         public string Latitude { get; set; }
-
+        [Required]
         public string Longitude { get; set; }
         public List<StateList> StateDropDownList { get; set; } = new List<StateList>()
         {
