@@ -9,79 +9,41 @@
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
-
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     @*<input type="text" id="txtLocation" name="txtLocation" onclick="getlocation()"><br>*@
 
-    <form id="studenteForm">
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <input type="hidden" asp-for="Id" />
+<form id="studenteForm">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input type="hidden" asp-for="Id" />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Address, new {  @class = "form-control", @id = "txtLocation", @onclick = "getlocation()"  })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @id = "txtLocation", @onclick = "getlocation()" })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
-            </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", @id = "txtLocationTwo", @onclick = "getlocationTwo()" })
+            @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            <label asp-for="Longitude">Longitude</label>
-            <input type="text" asp-for="Longitude" class="form-control" id="Longitude" placeholder="Enter Longitude">
-        </div>
 
-        <div class="form-group">
-            <label asp-for="Postal">Postalcode</label>
-            <input type="text" asp-for="Postal" class="form-control" id="idPostal" placeholder="Enter Postalcode">
-        </div>
 
-        <div class="form-group">
-            <label asp-for="City">City</label>
-            <input type="text" asp-for="City" class="form-control" id="idCity" placeholder="Enter City">
-        </div>
-
-        <div class="form-group">
-            <label asp-for="District">District</label>
-            <input type="text" asp-for="District" class="form-control" id="idDistrict" placeholder="Enter District">
-        </div>
-
-        <div class="form-group">
-            <label asp-for="State">State</label>
-            <input asp-for="State" hidden>
-            <select id="drpEmpList" class="form-control" asp-items="@(new SelectList(Model.StateDropDownList, "Text", "Text"))">
-                <option value="">--Select--</option>
-            </select>
-            @*<select id="drpEmpList" class="form-control">
-                    <option value="">--Select--</option>
-                    @foreach (var item in Model.StateDropDownList)
-                    {
-                        <option value="@item.Text">@item.Text</option>
-                    }
-                </select>*@
-
-            <input type="hidden" asp-for="Id" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="country">country</label>
-            <input type="text" asp-for="country" class="form-control" id="idcountry" placeholder="Enter country">
-        </div>
-
-        <div class="form-group">
-            <button type="button" class="btn btn-primary" onclick="submitStudent()">Submit</button>
-        </div>
-    </form>
+    <input type="text" id="txtResult" />
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" onclick="FindDistance()">Find Distance</button>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" onclick="submitStudent()">Submit</button>
+    </div>
+</form>
 
 
     <h1>@ViewBag.msg </h1>
@@ -92,107 +54,112 @@
 
 
 
-<div>
-    @*<input type="text" ID="txtLocation" Width="200px" />*@
 
-    <script type="text/javascript">
-    @*
-        AddScript('AIzaSyAOaWuSw6Y1KUo6XXGKfwcLah5awnn4tNU');
 
-        function AddScript(key) {
-            var script = document.createElement('script');
+<script type="text/javascript">
 
-            script.src = "https://maps.googleapis.com/maps/api/js?libraries=places&key=" + key;
-            script.type = 'text/javascript';
-            document.getElementsByTagName('head')[0].appendChild(script);
-        }*@
 
-        function submitStudent() {
-            debugger;
-          /*  $("#State").val($("#drpEmpList").val());*/
-            var data = $("#studenteForm").serialize();
-            console.log(data);
-            alert(data);
-            $.ajax({
-                type: 'POST',
-                url: '/Home/TestDropDown',
-                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
-                data: data,
-                success: function (result) {
-                    alert('Successfully received Data ');
-                    console.log(result);
-                },
-                error: function () {
-                    alert('Failed to receive the Data');
-                    console.log('Failed ');
-                }
-            })
 
+
+
+
+
+
+
+
+    function FindDistance() {
+        debugger;
+        /*  $("#State").val($("#drpEmpList").val());*/
+        var data = $("#studenteForm").serialize();
+        console.log(data);
+        alert(data);
+        $.ajax({
+            type: 'POST',
+            url: '/Home/TestDropDown',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: data,
+            success: function (result) {
+                alert('Successfully received Data ');
+                console.log(result);
+            },
+            error: function () {
+                ('Failed to receive the Data');
+                console.log('Failed ');
+            }
+        })
+
+    }
+
+
+
+    var a;
+
+    var L1;
+    var Long1;
+
+    var L2;
+    var Long2;
+
+    function getlocation() {
+        var places = new google.maps.places.Autocomplete(document.getElementById('txtLocation'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            a = place;
+            var place = places.getPlace();
+            L1 = place.geometry.location.lat();
+            Long1 = place.geometry.location.lng();
+        });
+    }
+
+    function getlocationTwo() {
+        var places = new google.maps.places.Autocomplete(document.getElementById('txtLocationTwo'));
+        google.maps.event.addListener(places, 'place_changed', function () {
+            a = place;
+            var place = places.getPlace();
+            L2 = place.geometry.location.lat();
+            Long2 = place.geometry.location.lng();
+        });
+
+       
+    }
+
+    function FindDistance() {
+        var result = distance(L1, Long1, L2, Long2);
+        console.log(result);
+        $("#txtResult").val(result);
+    }
+
+
+
+
+    function distance(lat1, lon1, lat2, lon2, unit = "k") {
+        debugger;
+        if ((lat1 == lat2) && (lon1 == lon2)) {
+            return 0;
         }
 
-        var a;
-        function getlocation() {
-            var places = new google.maps.places.Autocomplete(document.getElementById('txtLocation'));
-            google.maps.event.addListener(places, 'place_changed', function () {
-                a = place;
-                var place = places.getPlace();
-                var latitude = place.geometry.location.lat();
-                var longitude = place.geometry.location.lng();
-                var address = place.formatted_address;
-                var strarray = address.split(',');
-                var Addarr = strarray[0] + strarray[1] + strarray[2];
-
-                var country;
-                var city;
-                var district;
-                var Postal;
-                var State;
-                debugger;
-                for (var i = 0; i < place.address_components.length; i++)
-                {
-                    var find = false;
-                    for (var j = 0; j < place.address_components[i].types.length; j++) {
-                        if (place.address_components[i].types[j] == "postal_code") {
-                            Postal = place.address_components[i].long_name;
-                        }
-                        else if (place.address_components[i].types[j] == "locality") {
-                            city = place.address_components[i].long_name;
-                        }
-                        else if (place.address_components[i].types[j] == "administrative_area_level_2") {
-
-                            district = place.address_components[i].long_name;
-                        }
-                        else if (place.address_components[i].types[j] == "administrative_area_level_1") {
-                            debugger;
-                            State = place.address_components[i].long_name;
-                            //alert(State);
-                            if (State !== null)
-                            {
-                                //$("#drpEmpList").val(State).attr("selected", "selected");
-                                //$("#drpEmpList option:selected").text(State);
-                                $("#drpEmpList").val(State);
-                                //$("idState").val(State);
-                                //$('select[name^="salesrep"] option[value="Bruce Jones"]').attr("selected", "selected");
-                            }
-                        }
-                        else if (place.address_components[i].types[j] == "country") {
-                            country = place.address_components[i].long_name;
-                        }
-                    }
-                }
-
-                debugger;
-                $("#idPostal").val(Postal);
-                $("#idCity").val(city);
-                $("#idDistrict").val(district);
-                $("#idcountry").val(country);
-                $("#Latitude").val(latitude);
-                $("#Longitude").val(longitude);
-               // $("#idAddress").val(Addarr);
-            });
+        else {
+            var radlat1 = Math.PI * lat1 / 180;
+            var radlat2 = Math.PI * lat2 / 180;
+            var theta = lon1 - lon2;
+            var radtheta = Math.PI * theta / 180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180 / Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit == "K") { dist = dist * 1.609344 }
+            if (unit == "N") { dist = dist * 0.8684 }
+            return dist;
         }
-    </script>
-</div>
+    }
+
+
+
+
+
+</script>
 
 
 

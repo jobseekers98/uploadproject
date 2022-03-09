@@ -38,6 +38,7 @@ namespace WebApplication2.Models
 
         [Required]
         public string Address { get; set; }
+        public string Address2 { get; set; }
         [Required]
         public string Postal { get; set; }
         [Required]

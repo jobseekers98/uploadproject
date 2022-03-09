@@ -232,13 +232,8 @@ D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebAppli
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.genruntimeconfig.cache
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Demo\Index.cshtml.g.cs
 D:\WorkingProject\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\TestDropDown.cshtml.g.cs
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorTargetAssemblyInfo.cache
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\WebApplication2.StaticWebAssets.xml
@@ -295,8 +290,11 @@ C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -344,6 +342,8 @@ C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\it\Micr
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
@@ -351,13 +351,13 @@ C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtime
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Working Project\uploadproject\WebApplication2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.AssemblyReference.cache
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.GeneratedMSBuildEditorConfig.editorconfig
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfoInputs.cache
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.AssemblyInfo.cs
@@ -381,10 +381,10 @@ C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\V
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorTargetAssemblyInfo.cache
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.RazorTargetAssemblyInfo.cs
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.Views.pdb
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.CopyComplete
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.dll
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.pdb
 C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.genruntimeconfig.cache
-C:\Working Project\uploadproject\WebApplication2\obj\Debug\netcoreapp3.1\WebApplication2.csproj.AssemblyReference.cache
